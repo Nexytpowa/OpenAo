@@ -909,7 +909,8 @@ HRESULT CINFGameMainChat::InitDeviceObjects()
 		m_pNChatMenu[i] = new CINFImageEx;
 		wsprintf(buf, "chat_li%d", i);						// 채팅 메뉴 리스트
 		pDataHeader = FindResource(buf);
-		m_pNChatMenu[i]->InitDeviceObjects(pDataHeader);
+		if (pDataHeader) //nexy 2024
+			m_pNChatMenu[i]->InitDeviceObjects(pDataHeader);
 	}
 
 	m_pNChatInput = new CINFImageEx;
@@ -4905,7 +4906,7 @@ int CINFGameMainChat::WndProc(UINT uMsg, WPARAM wParam, LPARAM lParam)
 
 						}
 					}
-#ifdef _DEBUG
+#if 1
 					if (!bSendChat)
 					{
 						if (stricmp(chatOrder, STRCMD_C_COMMAND_WARP) == 0)//"/워프"

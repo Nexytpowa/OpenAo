@@ -21,7 +21,7 @@
 #ifndef __AUDIODEFS_INCLUDED__
 #define __AUDIODEFS_INCLUDED__
 
-#include <windef.h>  // For WORD, DWORD, etc.
+#include <windows.h>  // For WORD, DWORD, etc.
 
 #pragma pack(push, 1)  // Pack structures to 1-byte boundaries
 

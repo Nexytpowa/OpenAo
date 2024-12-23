@@ -16,3 +16,5 @@
 /sce_vectormath-master
 /ProjectsServer/XmlRpc/.vs
 /ProjectsServer/XmlRpc/XmlRpc.VC.db
+*.vcxproj
+/ProjectAtum/.vs

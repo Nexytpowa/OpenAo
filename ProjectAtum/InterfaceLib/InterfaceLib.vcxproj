@@ -245,7 +245,7 @@
     <LibraryPath>$(VC_LibraryPath_x86);$(WindowsSDK_LibraryPath_x86);$(SolutionDir)DX9cLink\Lib;$(SolutionDir)..\BuildResult\Lib\Release</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='R_DevX|Win32'">
-    <OutDir>$(SolutionDir)..\BuildResult\Lib\Release\</OutDir>
+    <OutDir>$(SolutionDir)..\BuildResult\Lib\Release</OutDir>
     <IntDir>$(SolutionDir)..\Intermediate\$(ProjectName)\$(Configuration)_$(Platform)\</IntDir>
     <LinkIncremental>false</LinkIncremental>
     <IncludePath>$(VC_IncludePath);$(WindowsSDK_IncludePath);$(SolutionDir)\DX9cLink\Include;$(SolutionDir)..\Common</IncludePath>
@@ -386,11 +386,11 @@
       <InlineFunctionExpansion>Default</InlineFunctionExpansion>
       <StringPooling>true</StringPooling>
       <FunctionLevelLinking>true</FunctionLevelLinking>
-      <Optimization>MaxSpeed</Optimization>
+      <Optimization>Disabled</Optimization>
       <SuppressStartupBanner>true</SuppressStartupBanner>
       <WarningLevel>TurnOffAllWarnings</WarningLevel>
       <AdditionalIncludeDirectories>../common;../ProjectAtum/main;../DirectXLib/main;../SkinnedMeshLib/main;../EtcLib/main;../DataRenderLib/main;../EffectLib/main;../SocketLib/main;main;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;WIN32;NDEBUG;_LIB;_ATUM_CLIENT;DEVX;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;WIN32;NDEBUG;_LIB;_ATUM_CLIENT;DEVX;%(PreprocessorDefinitions);</PreprocessorDefinitions>
       <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
       <BrowseInformation>false</BrowseInformation>
       <PrecompiledHeaderOutputFile>$(IntDir)</PrecompiledHeaderOutputFile>
@@ -399,8 +399,9 @@
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
       <EnableEnhancedInstructionSet>StreamingSIMDExtensions2</EnableEnhancedInstructionSet>
       <IntrinsicFunctions>true</IntrinsicFunctions>
-      <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
+      <FavorSizeOrSpeed>Neither</FavorSizeOrSpeed>
       <WholeProgramOptimization>true</WholeProgramOptimization>
+      <MinimalRebuild>true</MinimalRebuild>
     </ClCompile>
     <ResourceCompile>
       <Culture>0x0412</Culture>
@@ -1020,6 +1021,7 @@
     <ClCompile Include="main\INFWeaponInfo.cpp" />
     <ClCompile Include="main\INFWindow.cpp" />
     <ClCompile Include="main\INFWorldRankWnd.cpp" />
+    <ClCompile Include="main\INF_QOL_info.cpp" />
     <ClCompile Include="main\Interface.cpp" />
     <ClCompile Include="main\SetupConfig.cpp" />
     <ClCompile Include="main\SpriteDrawFix.cpp" />
@@ -1194,6 +1196,7 @@
     <ClInclude Include="main\INFWeaponInfo.h" />
     <ClInclude Include="main\INFWindow.h" />
     <ClInclude Include="main\INFWorldRankWnd.h" />
+    <ClInclude Include="main\INF_QOL_info.h" />
     <ClInclude Include="main\Interface.h" />
     <ClInclude Include="main\SetupConfig.h" />
     <ClInclude Include="main\SpriteDrawFix.h" />

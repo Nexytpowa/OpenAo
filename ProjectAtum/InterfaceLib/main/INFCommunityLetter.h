@@ -69,6 +69,9 @@ public:
 
 	void UpdateBtnPos();
 
+	int CountUnreadLetters();
+	void AddUnreadLetterCount();
+	int GetUnreadLetterCount();
 
 private:
 	// 
@@ -153,6 +156,9 @@ private:
 	CD3DHanFont*				m_pFontLetter;
 
 	BOOL						m_bLetterFirstRq;			// 처음 요청한 메일이냐?
+
+	int							m_nTotalUnreadLetters;
+	int							m_nAdditionalUnreadLetters; //2024/12/23 - Nexy : Added a counter for newly received mails
 };
 
 #endif // !defined(AFX_INFCOMMUNITYLETTER_H__DFF38A04_9D63_44D9_B403_CF87C3A3D868__INCLUDED_)

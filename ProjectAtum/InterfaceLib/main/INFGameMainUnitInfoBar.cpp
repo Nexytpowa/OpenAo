@@ -1008,13 +1008,13 @@ HRESULT CINFGameMainUnitInfoBar::InitDeviceObjects()
 	}
 
 	//2015-08-15 by St0rmy, better Ping Display
-	for (i = 0; i < PING_DISPLAY_COUNT; i++)
+	/*for (i = 0; i < PING_DISPLAY_COUNT; i++)
 	{
 		wsprintf(buf, "ping%d", i);
 		pDataHeader = m_pGameData->Find(buf);
 		m_pImgPing[i] = new CINFImageEx;
 		m_pImgPing[i]->InitDeviceObjects(pDataHeader);
-	}
+	}*/
 	
 	// 2012-10-12 by jhjang 해피 아워 경험치 보너스 시스템 리뉴얼
 #if S_BONUSEXPSYSTEM_RENEWAL || S_BONUS_KILL_SYSTEM_RENEWAL

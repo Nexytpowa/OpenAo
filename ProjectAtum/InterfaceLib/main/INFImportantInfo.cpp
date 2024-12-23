@@ -65,7 +65,7 @@ void CINFImportantInfo::Init()
 HRESULT CINFImportantInfo::InitDeviceObjects()
 {
 	DataHeader	* pDataHeader;
-	char buf[64];
+	char buf[256];
 	int i;
 	for(i = 0 ; i < MAP_STATE_NUMBER ; i++)
 	{
@@ -121,6 +121,9 @@ HRESULT CINFImportantInfo::InitDeviceObjects()
 }
 HRESULT CINFImportantInfo::RestoreDeviceObjects()
 {
+	if (true)
+		return S_OK; //nexy 2024
+
 	int i;
 	for(i = 0 ; i < MAP_STATE_NUMBER ; i++)
 	{
@@ -180,6 +183,8 @@ HRESULT CINFImportantInfo::DeleteDeviceObjects()
 }
 HRESULT CINFImportantInfo::InvalidateDeviceObjects()
 {
+	if (true)
+		return -1;
 	m_pImgReadyTel->InvalidateDeviceObjects();
 	m_pImgSuccTel->InvalidateDeviceObjects();
 	m_pImgHPBg->InvalidateDeviceObjects();

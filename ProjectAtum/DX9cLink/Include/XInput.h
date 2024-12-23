@@ -9,7 +9,7 @@
 #ifndef _XINPUT_H_
 #define _XINPUT_H_
 
-#include <windef.h>
+#include <windows.h>
 
 // Current name of the DLL shipped in the same SDK as this header.
 // The name reflects the current version

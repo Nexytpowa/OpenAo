@@ -280,7 +280,7 @@
     <LibraryPath>$(VC_LibraryPath_x86);$(WindowsSDK_LibraryPath_x86);$(SolutionDir)DX9cLink\Lib;$(SolutionDir)..\BuildResult\Lib\Release</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='R_DevX|Win32'">
-    <OutDir>$(SolutionDir)..\BuildResult\Lib\Release\</OutDir>
+    <OutDir>$(SolutionDir)..\BuildResult\Lib\Release</OutDir>
     <IntDir>$(SolutionDir)..\Intermediate\$(ProjectName)\$(Configuration)_$(Platform)\</IntDir>
     <LinkIncremental>false</LinkIncremental>
     <IncludePath>$(VC_IncludePath);$(WindowsSDK_IncludePath);$(SolutionDir)\DX9cLink\Include;$(SolutionDir)..\Common</IncludePath>

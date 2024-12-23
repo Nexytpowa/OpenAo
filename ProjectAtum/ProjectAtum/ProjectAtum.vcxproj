@@ -279,11 +279,11 @@
     <TargetExt>.atm</TargetExt>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='R_DevX|Win32'">
-    <OutDir>$(SolutionDir)..\BuildResult\Client\Release\</OutDir>
+    <OutDir>$(SolutionDir)..\client</OutDir>
     <IntDir>$(SolutionDir)..\Intermediate\$(ProjectName)\$(Configuration)_$(Platform)\</IntDir>
     <LinkIncremental>false</LinkIncremental>
-    <IncludePath>$(VC_IncludePath);$(WindowsSDK_IncludePath);$(SolutionDir)\DX9cLink\Include;$(SolutionDir)..\Common</IncludePath>
-    <LibraryPath>$(SolutionDir)..\BuildResult\Lib\Release;$(SolutionDir)..\Lib\Release;$(SolutionDir)DX9cLink\Lib;$(VC_LibraryPath_x86);$(WindowsSDK_LibraryPath_x86)</LibraryPath>
+    <IncludePath>$(VC_IncludePath);$(WindowsSDK_IncludePath);$(SolutionDir)\DX9cLink\Include;$(SolutionDir)..\Common;C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.42.34433\atlmfc\include</IncludePath>
+    <LibraryPath>$(SolutionDir)..\BuildResult\Lib\Release;$(SolutionDir)..\Lib\Release;$(SolutionDir)DX9cLink\Lib;$(VC_LibraryPath_x86);$(WindowsSDK_LibraryPath_x86);C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.42.34433\atlmfc\lib\x86</LibraryPath>
     <TargetName>game</TargetName>
     <TargetExt>.dat</TargetExt>
   </PropertyGroup>
@@ -556,7 +556,7 @@
       <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
       <StringPooling>true</StringPooling>
       <FunctionLevelLinking>true</FunctionLevelLinking>
-      <Optimization>MaxSpeed</Optimization>
+      <Optimization>Disabled</Optimization>
       <SuppressStartupBanner>true</SuppressStartupBanner>
       <WarningLevel>TurnOffAllWarnings</WarningLevel>
       <AdditionalIncludeDirectories>../common;../BaseClasses;../DataRenderLib/main;../DirectXLib/main;../EffectLib/main;../EtcLib/main;../InterfaceLib/main;../SkinnedMeshLib/main;../SocketLib/main;main;resource;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
@@ -569,10 +569,12 @@
       <ExceptionHandling>Async</ExceptionHandling>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
       <IntrinsicFunctions>true</IntrinsicFunctions>
-      <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
+      <FavorSizeOrSpeed>Neither</FavorSizeOrSpeed>
       <EnableEnhancedInstructionSet>StreamingSIMDExtensions2</EnableEnhancedInstructionSet>
       <AdditionalOptions>/openmp %(AdditionalOptions)</AdditionalOptions>
-      <WholeProgramOptimization>true</WholeProgramOptimization>
+      <WholeProgramOptimization>false</WholeProgramOptimization>
+      <MinimalRebuild>true</MinimalRebuild>
+      <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
     </ClCompile>
     <Midl>
       <SuppressStartupBanner>true</SuppressStartupBanner>

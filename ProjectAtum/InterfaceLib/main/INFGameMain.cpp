@@ -30,6 +30,7 @@
 #include "INFGameMainQSlot.h"
 #include "INFGameMainMinimap.h"
 #include "INFCommunity.h"
+#include "INF_QOL_info.h"
 #include "INFUnitState.h"
 #include "INFAttackDirection.h"
 #include "INFGameHelpDesk.h"
@@ -697,9 +698,14 @@ HRESULT CINFGameMain::InitDeviceObjects()
 	m_pWeaponInfo->SetGameData(m_pGameData);
 	m_pWeaponInfo->InitDeviceObjects() ;
 
-	m_pCommunity = new CINFCommunity(this) ;
+	m_pCommunity = new CINFCommunity(this);
 	m_pCommunity->SetGameData(m_pGameData);
 	m_pCommunity->InitDeviceObjects() ;
+
+	// 2024/12/23 - Nexy : QOL info setup
+	m_pQOLInfo = new CINFQOLinfo(this, m_pCommunity);
+	m_pQOLInfo->SetGameData(m_pGameData);
+	m_pQOLInfo->InitDeviceObjects();
 
 	m_pTrade = new CINFTrade(this) ;
 	m_pTrade->SetGameData(m_pGameData);
@@ -1221,6 +1227,8 @@ HRESULT CINFGameMain::RestoreDeviceObjects()
 
 		if(m_pCommunity)
 			m_pCommunity->RestoreDeviceObjects() ;
+		if (m_pQOLInfo)
+			m_pQOLInfo->RestoreDeviceObjects() ;
 		if(m_pTrade && !m_pTrade->m_bRestored )
 			m_pTrade->RestoreDeviceObjects() ;
 		if(m_pInven && !m_pInven->m_bRestored )
@@ -1798,6 +1806,8 @@ HRESULT CINFGameMain::InvalidateDeviceObjects()
 //			m_pParty->InvalidateDeviceObjects() ;
 		if(m_pCommunity )
 			m_pCommunity->InvalidateDeviceObjects() ;
+		if (m_pQOLInfo)
+			m_pQOLInfo->InvalidateDeviceObjects() ;
 		if(m_pTrade && m_pTrade->m_bRestored)
 			m_pTrade->InvalidateDeviceObjects() ;
 		if(m_pInven && m_pInven->m_bRestored )
@@ -2291,6 +2301,11 @@ void CINFGameMain::Tick()
 	if(m_pCommunity)
 	{
 		m_pCommunity->Tick();
+	}
+
+	if (m_pQOLInfo)
+	{
+		m_pQOLInfo->Tick();
 	}
 
 // 2007-10-22 by dgwoo 종료시 시간이 안가는 버그발생 예방 차원에서 위치 수정.
@@ -8146,6 +8161,10 @@ void CINFGameMain::RenderCommunity()
 		return;
 	}
 	m_pCommunity->Render();
+
+	if (m_pQOLInfo)
+		m_pQOLInfo->Render();
+	
 }
 ///////////////////////////////////////////////////////////////////////////////
 /// \fn			

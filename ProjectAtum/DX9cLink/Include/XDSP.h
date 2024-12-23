@@ -22,7 +22,7 @@
 
 #pragma once
 //--------------<D-E-F-I-N-I-T-I-O-N-S>-------------------------------------//
-#include <windef.h> // general windows types
+#include <windows.h> // general windows types
 #include <math.h>   // trigonometric functions
 #if defined(_XBOX)  // SIMD intrinsics
     #include <ppcintrinsics.h>

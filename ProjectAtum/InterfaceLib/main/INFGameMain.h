@@ -190,6 +190,7 @@ class CINFGameMainUnitInfoBar;
 class CINFGameMainMiniMap;
 class CINFGameMainOutPost;
 class CINFCommunity;
+class CINFQOLinfo;
 class CINFWindow;
 class CINFWeaponInfo;
 class CINFTrade;
@@ -687,6 +688,8 @@ public:
 	CINFWindow				*	m_pInfWindow;
 	CINFWeaponInfo			*	m_pWeaponInfo ;
 	CINFTrade				*	m_pTrade;
+
+	CINFQOLinfo				* m_pQOLInfo; // 2024/12/23 Nexy : Added QOL improvements to the main UI
 	
 	// 2008-08-22 by bhsohn EP3 인벤토리 처리
 	//CINFInven				*	m_pInven ;

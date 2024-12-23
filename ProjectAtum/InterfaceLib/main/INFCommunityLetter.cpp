@@ -2051,6 +2051,10 @@ void CINFCommunityLetter::AddReadLetter(BOOL bAllMail, BOOL bReadMail, UID64_t  
 	m_pScrollRead->SetMaxItem((int)m_vecReadLetter.size());
 
 	sort(m_vecReadLetter.begin(), m_vecReadLetter.end(), Letter_Sort());	
+
+	// 2024/23/12 - Nexy : Recount unread letters and reset additional letter count when browsing
+	CountUnreadLetters();
+	m_nAdditionalUnreadLetters = 0; 
 }
 void CINFCommunityLetter::RqDelReadLetter(BOOL bAllMail, UID64_t   LetterUID)
 {
@@ -2900,4 +2904,26 @@ void CINFCommunityLetter::UpdateBtnPos()
 		m_pScrollWrite->SetMouseBallRect(rcMousePos);
 	}
 #endif
+}
+
+int CINFCommunityLetter::CountUnreadLetters()
+{
+	int count = 0;
+	for (auto& letter : m_vecReadLetter)
+	{
+		if (!letter.bReadMail)
+			count++;
+	}
+	m_nTotalUnreadLetters = count;
+	return count;
+}
+
+void CINFCommunityLetter::AddUnreadLetterCount()
+{
+	m_nAdditionalUnreadLetters++;
+}
+
+int CINFCommunityLetter::GetUnreadLetterCount()
+{
+	return m_nTotalUnreadLetters + m_nAdditionalUnreadLetters;
 }

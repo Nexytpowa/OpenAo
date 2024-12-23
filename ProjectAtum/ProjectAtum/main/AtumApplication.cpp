@@ -39227,6 +39227,9 @@ void CAtumApplication::FiedldSocketChatLetterReceive(MSG_FC_CHAT_LETTER_RECEIVE*
 	char buf[256];
 	wsprintf(buf, STRMSG_C_080513_0206, pMsg->SendCharacterName);//"%s님으로부터 편지가 왔습니다."
 	m_pChat->CreateChatChild(buf, COLOR_SYSTEM);
+
+	CINFCommunityLetter* pLetter = g_pGameMain->m_pCommunity->GetLetter();
+	pLetter->AddUnreadLetterCount(); // 2024/12/23 Nexy : 
 }
 
 
@@ -39282,6 +39285,9 @@ void CAtumApplication::FiedldSocketChatAllLetterReceive(MSG_FC_CHAT_ALLLETTER_RE
 	char buf[256];
 	wsprintf(buf, STRMSG_C_080513_0206, pMsg->SendCharacterName);//"%s님으로부터 편지가 왔습니다."
 	m_pChat->CreateChatChild(buf, COLOR_SYSTEM);
+
+	CINFCommunityLetter* pLetter = g_pGameMain->m_pCommunity->GetLetter();
+	pLetter->AddUnreadLetterCount();
 }
 
 ///////////////////////////////////////////////////////////////////////////////
