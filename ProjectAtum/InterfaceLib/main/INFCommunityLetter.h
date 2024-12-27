@@ -71,7 +71,7 @@ public:
 
 	int CountUnreadLetters();
 	void AddUnreadLetterCount();
-	int GetUnreadLetterCount();
+	const int GetUnreadLetterCount();
 
 private:
 	// 

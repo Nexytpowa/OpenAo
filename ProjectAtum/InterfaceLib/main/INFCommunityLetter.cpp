@@ -233,6 +233,10 @@ CINFCommunityLetter::CINFCommunityLetter(CAtumNode* pParent)
 	m_bAllMail = FALSE;	
 
 	m_bLetterFirstRq = FALSE;
+
+	//Nexy 2024/12/27
+	m_nTotalUnreadLetters = 0;
+	m_nAdditionalUnreadLetters = 0;
 }
 
 CINFCommunityLetter::~CINFCommunityLetter()
@@ -2054,7 +2058,6 @@ void CINFCommunityLetter::AddReadLetter(BOOL bAllMail, BOOL bReadMail, UID64_t  
 
 	// 2024/23/12 - Nexy : Recount unread letters and reset additional letter count when browsing
 	CountUnreadLetters();
-	m_nAdditionalUnreadLetters = 0; 
 }
 void CINFCommunityLetter::RqDelReadLetter(BOOL bAllMail, UID64_t   LetterUID)
 {
@@ -2397,6 +2400,10 @@ void CINFCommunityLetter::SetLetterInfo(BOOL bAllMail, UID64_t LetterUID, char* 
 		// 최대 아이템을 정해주고
 		m_pScrollReadInfo->SetMaxItem(nMaxStep);
 	}	
+
+	//Nexy 2024-12-27 : Decrement unread letter count if the mail wasn't read
+	if(!struItem.bReadMail)
+		m_nAdditionalUnreadLetters--;
 }
 
 
@@ -2915,6 +2922,7 @@ int CINFCommunityLetter::CountUnreadLetters()
 			count++;
 	}
 	m_nTotalUnreadLetters = count;
+	m_nAdditionalUnreadLetters = 0;
 	return count;
 }
 
@@ -2923,7 +2931,7 @@ void CINFCommunityLetter::AddUnreadLetterCount()
 	m_nAdditionalUnreadLetters++;
 }
 
-int CINFCommunityLetter::GetUnreadLetterCount()
+const int CINFCommunityLetter::GetUnreadLetterCount()
 {
 	return m_nTotalUnreadLetters + m_nAdditionalUnreadLetters;
 }

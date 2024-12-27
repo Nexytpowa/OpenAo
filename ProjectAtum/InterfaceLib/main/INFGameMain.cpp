@@ -703,7 +703,7 @@ HRESULT CINFGameMain::InitDeviceObjects()
 	m_pCommunity->InitDeviceObjects() ;
 
 	// 2024/12/23 - Nexy : QOL info setup
-	m_pQOLInfo = new CINFQOLinfo(this, m_pCommunity);
+	m_pQOLInfo = new CINFQOLinfo(this);
 	m_pQOLInfo->SetGameData(m_pGameData);
 	m_pQOLInfo->InitDeviceObjects();
 
